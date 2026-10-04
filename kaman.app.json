@@ -1,64 +1,26 @@
 {
   "name": "Product Video Studio",
   "agents": {
-    "producer": "17c69347-9309-53ac-940e-49c93e93ae57"
+    "producer": "ac875841-cc83-5b62-adc9-1735b21410c3"
   },
   "workflows": {
-    "flow": "cebca8a0-325a-5f70-b82f-d910a086eeac"
+    "flow": "4bb3a777-eb91-505e-9cc1-1dbd2c37cfdf"
+  },
+  "scenarios": {
+    "desk": "19f2022f-3596-5b7e-9854-f0bf393ab3df"
   },
   "ui": {
     "title": "Product Video Studio",
     "tagline": "A video producer agent that turns a short brief, and optionally a product photo, into a finished narrated video: it writes the script, voices every scene with the platform's text-to-speech, builds 3D scenes with Remotion and three.js, renders an MP4 in the sandbox and shows it in the chat.",
-    "actions": [
-      {
-        "id": "run",
-        "label": "Run: Script, approve, produce",
-        "description": "Run by the product video studio. Kaman writes a scene-by-scene script for the brief, checks its length and claims in code, tightens it if it runs long, has marketing approve the script, and only then has the Video Producer voice, render and deliver the video.",
-        "kind": "workflow",
-        "target": "flow",
-        "inputs": [
-          {
-            "name": "brief",
-            "label": "Brief",
-            "kind": "text",
-            "default": "Halo, a smart water bottle that glows when it is time to drink, tracks every sip and keeps water cold for 24 hours."
-          },
-          {
-            "name": "audience",
-            "label": "Audience",
-            "kind": "text",
-            "default": "busy office workers"
-          },
-          {
-            "name": "seconds",
-            "label": "Seconds",
-            "kind": "text",
-            "default": "25"
-          },
-          {
-            "name": "aspect",
-            "label": "Aspect",
-            "kind": "text",
-            "default": "16:9"
-          }
-        ]
-      },
-      {
-        "id": "ask",
-        "label": "Ask the Video Producer",
-        "description": "Makes narrated product videos from a brief and a product photo.",
-        "kind": "agent",
-        "target": "producer",
-        "prompt": "{{question}}",
-        "inputs": [
-          {
-            "name": "question",
-            "label": "Your question",
-            "kind": "text",
-            "default": "What should I look at first, and why?"
-          }
-        ]
-      }
-    ]
+    "run": "Run: Script, approve, produce",
+    "chat": {
+      "agent": "producer",
+      "title": "Ask the Video Producer",
+      "suggestions": [
+        "Make a 20-second ad for Halo, a smart water bottle that glows when it's time to drink. Photo attached as img_1.",
+        "Make it vertical for Instagram reels.",
+        "Change the last line to 'Order today at halo dot example' and use a deeper voice."
+      ]
+    }
   }
 }
